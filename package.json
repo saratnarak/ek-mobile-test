@@ -14,9 +14,9 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "jest",
-    "i18n:check": "echo 'TODO: en/km key parity'",
-    "contracts:verify": "echo 'TODO: contract pin check'",
-    "fixtures:check": "echo 'TODO: fixtures check'",
+    "i18n:check": "node scripts/check-i18n.mjs",
+    "contracts:verify": "node scripts/verify-contracts.mjs",
+    "fixtures:check": "node scripts/check-fixtures.mjs",
     "e2e": "maestro test e2e"
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { ActivityIndicator, Animated, Easing, StyleSheet, View } from 'react-native';
 
 import { colors } from '@/design';
@@ -24,7 +24,7 @@ export function ProgressBar({ color, type = 'dot', size }: Props) {
 }
 
 function ThreeDotLoader({ color, size }: { color: string; size: number }) {
-  const progress = useRef(new Animated.Value(0)).current;
+  const [progress] = useState(() => new Animated.Value(0));
 
   useEffect(() => {
     const loop = Animated.loop(

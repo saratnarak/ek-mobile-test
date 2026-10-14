@@ -8,3 +8,11 @@ android/
 !.env.example
 .DS_Store
 .idea/
+
+# Agent kit (local mode)
+.agents/
+.opencode/
+.tossana/
+AGENTS.md
+agent.config.json
+docs/clickup/

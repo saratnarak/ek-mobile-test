@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Animated, Dimensions, Modal, Pressable, StyleSheet, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -24,11 +24,14 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 export function BottomSheet({ visible, onClose, title, dismissible = true, children }: Props) {
   const insets = useSafeAreaInsets();
   const [mounted, setMounted] = useState(visible);
-  const anim = useRef(new Animated.Value(0)).current;
+  const [anim] = useState(() => new Animated.Value(0));
+
+  if (visible && !mounted) {
+    setMounted(true);
+  }
 
   useEffect(() => {
     if (visible) {
-      setMounted(true);
       Animated.spring(anim, { toValue: 1, useNativeDriver: true, bounciness: 0 }).start();
     } else if (mounted) {
       Animated.timing(anim, { toValue: 0, duration: 200, useNativeDriver: true }).start(() =>
