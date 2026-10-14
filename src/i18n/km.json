@@ -1,1 +1,7 @@
-{}
+{
+  "orders": {
+    "emptyTitle": "No orders yet",
+    "emptyMessage": "Scan a table QR to start ordering.",
+    "scanTableQr": "Scan a table QR"
+  }
+}
